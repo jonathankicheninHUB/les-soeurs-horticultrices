@@ -10,8 +10,8 @@
     
     <style>
         :root { 
-            --vert-terroir: #2c3e50; /* Bleu-Gris profond, très classe */
-            --or-terre: #c0a062;     /* Doré mat */
+            --vert-terroir: #2c3e50; 
+            --or-terre: #c0a062;     
             --blanc-papier: #f9f7f2;
         }
         
@@ -50,26 +50,34 @@
         }
         .btn-nav-highlight:hover { background-color: var(--vert-terroir); color: white !important; }
 
-        /* HERO SECTION */
+        /* HERO SECTION (Modifiée pour la nouvelle image) */
         .terroir-hero {
-            height: 550px; 
-            background-image: url('fond-accueil.jpg'); /* Votre image de fond existante */
-            background-size: cover; background-position: center;
-            position: relative; display: flex; align-items: center; justify-content: center; text-align: center;
+            height: 600px; /* Un peu plus grand pour bien voir l'image */
+            /* C'est ICI qu'on appelle votre nouvelle image : */
+            background-image: url('accueil-terroir.jpg'); 
+            background-size: cover; 
+            background-position: center;
+            position: relative; 
+            display: flex; 
+            align-items: flex-end; /* On pousse le bouton vers le bas */
+            justify-content: center; 
+            text-align: center;
+            padding-bottom: 50px;
         }
+        /* On garde un filtre très léger pour que le blanc du bouton ressorte */
         .hero-filter {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.3); /* Filtre léger pour lire le texte */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4));
         }
-        .hero-txt { position: relative; z-index: 2; color: white; max-width: 800px; padding: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-        .hero-txt h2 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; }
-        .hero-txt p { font-size: 1.2rem; font-weight: 400; margin-bottom: 40px; color: #f0f0f0; }
+        .hero-content { position: relative; z-index: 2; }
+        
         .btn-terroir {
-            background-color: white; color: var(--vert-terroir); padding: 15px 40px; 
+            background-color: var(--vert-terroir); color: white; padding: 15px 40px; 
             text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
-            transition: all 0.3s; border-radius: 2px;
+            transition: all 0.3s; border-radius: 2px; border: 2px solid white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
-        .btn-terroir:hover { background-color: var(--or-terre); color: white; }
+        .btn-terroir:hover { background-color: white; color: var(--vert-terroir); }
 
         /* GRID RAYONS */
         .rayons-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
@@ -90,7 +98,6 @@
         .product-card:hover .card-img img { transform: scale(1.05); }
         
         .card-body { padding: 25px; text-align: center; position: relative; }
-        /* Petite ligne décorative */
         .card-body::after { content: ''; display: block; width: 40px; height: 2px; background: var(--or-terre); margin: 15px auto 0; }
         
         .card-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin: 5px 0; color: var(--vert-terroir); }
@@ -131,9 +138,7 @@
 
     <section class="terroir-hero">
         <div class="hero-filter"></div>
-        <div class="hero-txt">
-            <h2>L'Authenticité,<br>Directement du Champ.</h2>
-            <p>Nous connectons les meilleurs producteurs de Bras-Panon et de l'Est<br>aux tables des particuliers et restaurateurs.</p>
+        <div class="hero-content">
             <a href="#rayons" class="btn-terroir">Découvrir la Sélection</a>
         </div>
     </section>
