@@ -35,11 +35,12 @@ header {
     font-size: 1.5rem;
 }
 
+/* CORRECTION DU CHEVAUCHEMENT ICI */
 .logo-text h1 {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: -5px;
+    margin-bottom: 2px; /* J'ai remplacé -5px par 2px pour aérer */
     line-height: 1;
 }
 
@@ -95,7 +96,7 @@ nav a:hover {
 /* --- HERO SECTION (Grande image) --- */
 .hero {
     height: 90vh;
-    /* CORRECTION ICI : L'image est maintenant cherchée à la racine */
+    /* L'image est cherchée à la racine (à côté du fichier index.html) */
     background-image: url('fond-accueil.jpg'); 
     background-size: cover;
     background-position: center;
