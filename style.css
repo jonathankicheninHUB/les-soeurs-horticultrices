@@ -1,6 +1,6 @@
-/* Réinitialisation de base */
+/* --- CONFIGURATION GLOBALE --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Montserrat', sans-serif; color: #333; line-height: 1.6; background-color: #fafafa; /* Fond très légèrement gris pour faire ressortir les cartes */ }
+body { font-family: 'Montserrat', sans-serif; color: #333; line-height: 1.6; background-color: #fafafa; }
 
 /* --- HEADER --- */
 header {
@@ -13,13 +13,15 @@ header {
 .logo-icon { font-size: 1.5rem; }
 .logo-text h1 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 2px; line-height: 1; }
 .logo-text .subtitle { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: #d34545; letter-spacing: 1px; display: block; }
+
 nav ul { display: flex; list-style: none; align-items: center; gap: 30px; }
 nav a { text-decoration: none; color: #555; font-size: 0.95rem; font-weight: 500; transition: color 0.3s; }
-nav a:hover, nav a.active { color: #2e5c38; font-weight: 600; } /* Ajout du style active */
+nav a:hover, nav a.active { color: #2e5c38; font-weight: 600; }
+
 .cart-icon { position: relative; }
 .cart-icon .badge { position: absolute; top: -8px; right: -10px; background-color: #d34545; color: white; font-size: 0.7rem; width: 18px; height: 18px; border-radius: 50%; display: flex; justify-content: center; align-items: center; }
 
-/* --- HERO SECTION --- */
+/* --- HERO (ACCUEIL) --- */
 .hero {
     height: 90vh;
     background-image: url('fond-accueil.jpg');
@@ -37,7 +39,7 @@ nav a:hover, nav a.active { color: #2e5c38; font-weight: 600; } /* Ajout du styl
 .btn-red { background-color: #d34545; color: white; }
 .btn-white { background-color: white; color: #2e5c38; }
 
-/* --- SECTION PRESENTATION (Palmiste) --- */
+/* --- SECTION PRESENTATION (PAGE PALMISTE) --- */
 .presentation-section { padding: 80px 10%; background-color: #fff; }
 .presentation-container { display: flex; align-items: center; gap: 60px; }
 .text-column { flex: 1; }
@@ -47,119 +49,88 @@ nav a:hover, nav a.active { color: #2e5c38; font-weight: 600; } /* Ajout du styl
 .features-grid { display: flex; gap: 30px; margin-top: 40px; }
 .feature-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
 .icon-circle { width: 50px; height: 50px; border: 2px solid #2e5c38; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #2e5c38; font-size: 1.2rem; }
-.feature-item span { font-size: 0.8rem; font-weight: 700; color: #333; }
 .image-column { flex: 1; position: relative; }
 .image-column img { width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 .quote-overlay { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); width: 90%; color: white; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; text-align: center; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
 
-/* --- NOUVEAU : SECTION BOUTIQUE (FLEURS) --- */
-.shop-section {
-    padding: 60px 10%;
-    text-align: center;
+/* --- SECTION BOUTIQUE (PAGE FLEURS) --- */
+.shop-section { padding: 60px 10%; text-align: center; }
+.shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+.product-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: transform 0.3s; text-align: left; }
+.product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+.product-image { position: relative; height: 250px; overflow: hidden; }
+.product-image img { width: 100%; height: 100%; object-fit: cover; }
+.add-cart-btn { position: absolute; bottom: 15px; right: 15px; background-color: white; border: none; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #2e5c38; font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.15); transition: background-color 0.2s; }
+.add-cart-btn:hover { background-color: #2e5c38; color: white; }
+.product-info { padding: 25px; }
+.product-info h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 10px; color: #222; }
+.description { font-size: 0.9rem; color: #777; margin-bottom: 20px; min-height: 40px; }
+.price-row { display: flex; justify-content: space-between; align-items: flex-end; }
+.price { font-size: 1.4rem; font-weight: 700; color: #d34545; }
+.unit { font-size: 0.8rem; color: #999; }
+
+/* --- SECTION L'ATELIER (PAGE ATELIER) --- */
+.atelier-section { padding: 80px 10%; background-color: #fff; }
+.atelier-container { display: flex; gap: 60px; align-items: flex-start; }
+
+/* Colonne Gauche */
+.atelier-image-col { flex: 1; }
+.image-wrapper { position: relative; border-radius: 15px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+.image-wrapper img { width: 100%; display: block; }
+
+/* Badge Vert */
+.caviar-badge {
+    position: absolute; bottom: 20px; right: 20px;
+    background-color: #2e5c38; color: white;
+    padding: 10px 20px; border-radius: 10px;
+    font-family: 'Playfair Display', serif; font-weight: 700;
+    text-align: center; line-height: 1.2; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.shop-grid {
-    display: grid;
-    /* Création automatique des colonnes : minimum 300px de large */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px; /* Espace entre les cartes */
-    margin-top: 40px;
-}
+/* Colonne Droite */
+.atelier-content-col { flex: 1; padding-top: 10px; }
+.tagline { font-size: 0.8rem; font-weight: 700; color: #2e5c38; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 10px; }
+.atelier-title { font-family: 'Playfair Display', serif; font-size: 3rem; line-height: 1.1; margin-bottom: 20px; color: #222; }
+.atelier-desc { color: #666; font-size: 1.05rem; margin-bottom: 40px; text-align: justify; }
 
-/* La Carte Produit */
-.product-card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden; /* Empêche l'image de dépasser des bords ronds */
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    transition: transform 0.3s;
-    text-align: left;
+/* Liste Produits Horizontale */
+.product-list-horizontal { margin-bottom: 40px; }
+.product-item {
+    display: flex; justify-content: space-between; align-items: center;
+    background: #fff; border: 1px solid #eee;
+    padding: 20px; border-radius: 12px; margin-bottom: 15px;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
-
-.product-card:hover {
-    transform: translateY(-5px); /* La carte monte un peu au survol */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+.product-item:hover { border-color: #2e5c38; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.prod-details h3 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700; color: #333; margin-bottom: 5px; }
+.prod-details p { font-size: 0.85rem; color: #888; }
+.prod-action { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
+.prod-action .price { font-size: 1.3rem; color: #2e5c38; }
+.add-text-btn {
+    background: none; border: none; color: #d34545; font-weight: 700; font-size: 0.8rem;
+    cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: color 0.2s;
 }
+.add-text-btn:hover { color: #2e5c38; text-decoration: underline; }
 
-/* Zone Image et Bouton Panier */
-.product-image {
-    position: relative;
-    height: 250px; /* Hauteur fixe pour que tout soit aligné */
-    overflow: hidden;
+/* Recettes */
+.recipe-preview h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; color: #222; display: flex; align-items: center; gap: 10px; }
+.recipe-card-mini {
+    background: #f9f9f9; padding: 15px 20px; border-radius: 8px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-weight: 600; color: #555; cursor: pointer; transition: background 0.2s;
 }
+.recipe-card-mini:hover { background: #eee; color: #2e5c38; }
 
-.product-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* L'image remplit la zone sans se déformer */
-}
-
-.add-cart-btn {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    background-color: white;
-    border: none;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #2e5c38;
-    font-size: 1.1rem;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.add-cart-btn:hover {
-    background-color: #2e5c38;
-    color: white;
-}
-
-/* Informations Produit */
-.product-info {
-    padding: 25px;
-}
-
-.product-info h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    color: #222;
-}
-
-.description {
-    font-size: 0.9rem;
-    color: #777;
-    margin-bottom: 20px;
-    min-height: 40px; /* Pour aligner les prix même si le texte est court */
-}
-
-.price-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end; /* Aligne le prix et l'unité en bas */
-}
-
-.price {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #d34545; /* Rouge */
-}
-
-.unit {
-    font-size: 0.8rem;
-    color: #999;
-}
-
-/* Mobile */
+/* RESPONSIVE */
 @media (max-width: 900px) {
-    .presentation-container { flex-direction: column; }
-    .text-column { text-align: center; }
+    .presentation-container, .atelier-container { flex-direction: column; }
+    .text-column, .atelier-content-col { text-align: center; }
+    .image-wrapper { max-width: 100%; margin-bottom: 30px; }
     .red-line { margin: 0 auto 30px auto; }
     .features-grid { justify-content: center; }
+    .atelier-title { font-size: 2.5rem; }
+    .product-item { flex-direction: column; text-align: center; gap: 15px; }
+    .prod-action { align-items: center; }
 }
 @media (max-width: 768px) {
     .main-title { font-size: 2.5rem; }
